@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: aqua;
+}
+.botton {
+  display: inline-block;
+  width: 50px; /* Set the width */
+  height: 50px; /* Set the height */
+  margin-right: 10px; /* Adjust margin as needed */
+  border: 1px solid black; /* Add border for better visibility */
+}
+.white{
+  background-color: white;
+}
+.yellow{
+  background-color: yellow;
+}
+.grey{
+  background-color: rgb(88, 85, 85);
+}
+.blue
+{
+  background-color: blue;
+}

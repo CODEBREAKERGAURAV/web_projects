@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <title>side bar</title>
+  <style>
+
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    :root{
+      --primaryclr:#282828;
+      --secondaryclr:#1f1f1f;
+      --txtclr:#aaaaaa;
+      --hoverclr:#1f1f1f;
+      --hoverclr2:#ff4e45;
+
+    }
+    body{
+      background-color: var(--secondaryclr);
+    }
+    img{
+      width: 75px;
+      border-radius: 50%;
+    }
+    header{
+      background-color: var(--primaryclr);
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 40px;
+      padding: 0 10px;
+      margin-left: 0;
+      transition: .2s ease;
+
+
+    }
+    .sidebar{
+      width: 0;
+      overflow: hidden;
+      background-color: var(--primaryclr);
+      position: fixed;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      border-right: 1px solid #3e3e3e;
+      transition: .2s ease;
+
+    }
+    header.open{
+      margin-left: 160px;
+
+    }
+    .sidebar.open{
+      width: 160px;
+
+    }
+    .profile{
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      color: white;
+      font-size: 12px;
+      align-items: center;
+    }
+    .info{
+      text-align: center;
+    }
+    li{
+      list-style: none;
+      padding: 4px;
+    }
+    li a{
+      text-decoration: none;
+      color:var(--txtclr);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 8px 20px;
+      font-size: 10px;
+      font-weight: bold;
+
+    }
+    i{
+      font-size: 17px !important;
+      color: var(--txtclr);
+      cursor: pointer;
+    }
+    li:hover{
+      background-color: var(--hoverclr);
+    }
+    li:hover a {
+      color: var(--hoverclr2);
+    }
+    li:hover a i{
+      color: var(--hoverclr2);
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <header id="header">
+    <i onclick=" toglesidebar()" class="material-symbols-outlined">
+      menu
+      </i>
+      <h4>Studio</h4>
+  </header>
+  <nav  id="sidebar" class="sidebar">
+    <div class="profile">
+      <img src="./DSC02516.JPG">
+      <div class="info">
+        <h4>Web Path</h4>
+        <h4>Web Development</h4>
+      </div>
+    </div>
+    <ul class="link">
+      <li>
+        <a href="#">
+          <i class="material-symbols-outlined">Dashboard</i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-symbols-outlined">Dashboard</i>
+          <p>Profile</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-symbols-outlined">Dashboard</i>
+          <p>Contact Us</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-symbols-outlined">Dashboard</i>
+          <p>Download</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-symbols-outlined">Dashboard</i>
+          <p>Payment</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-symbols-outlined">Dashboard</i>
+          <p>Subscription</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-symbols-outlined">Dashboard</i>
+          <p>Setting</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-symbols-outlined">Dashboard</i>
+          <p>Log Out</p>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  <script>
+  let sidebar=document.getElementById("sidebar");
+  let header=document.getElementById("header");
+  function toglesidebar()
+  {
+    sidebar.classList.toggle("open")
+    header.classList.toggle("open");
+  }
+  </script>
+</body>
+</html>
