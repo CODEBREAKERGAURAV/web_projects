@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Multi-level Navigation Bar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #333;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            padding: 15px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            background-color: #555;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: #333;
+            display: none;
+            list-style: none;
+        }
+
+        .dropdown li a {
+            padding: 10px 15px;
+        }
+
+        .nav-links li:hover .dropdown {
+            display: block;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                padding: 15px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-links li {
+                text-align: left;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            ☰
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+                <a href="#">Services</a>
+                <ul class="dropdown">
+                    <li><a href="#">Service 1</a></li>
+                    <li><a href="#">Service 2</a></li>
+                    <li><a href="#">Service 3</a></li>
+                    <li><a href="#">Service 4</a></li>
+                    <li><a href="#">Service 5</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
