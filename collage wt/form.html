@@ -7,13 +7,31 @@
 </head>
 <body>
   <table border="1">
-  <form>
+  <form name="input" action="form.html" method="get">
     <h3>FeedBack form</h3>
     <label for="UserName">Username</label>
     <input type="text" id="UserName" placeholder="Enter Name">
     <lable for="RollNumber" >RollNumber</lable>
     <input type="number" id="RollNumber" placeholder="Enter RollNumber">
     <br>
+    <br>
+    <br>
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter password">
+    <br><br>....Gender...<br>male<input type="radio" name="gender" value="male"><br>
+    female<input type="radio" name="gender" value="female"><br><br><br>
+    ....Checkbox..<input type="checkbox" value="satisfy" name="yes">yes...
+    <input type="checkbox" value="satisfy" name="no">...no<br>
+    <br>
+    <br>
+    <br><br><br><br>
+    give us star: <select name="star">
+      <option value="1" selected>1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
     <br>
     <br>
     <label for="feedback">Enter FeedBack</label>
