@@ -1,0 +1,88 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* body{
+  background-image: url(./gradient-bg.jpg);
+} */
+.wrapper{
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./gradient-bg.jpg);
+  background-position: center;
+  display: grid;
+  place-items: center; 
+
+}
+.game-info{
+  font-size: 18px;
+  color: aliceblue;
+  position: absolute;
+  top: 3rem;
+  left: 43%;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255,255, 0.25);
+  padding: 0.5rem 3rem;
+  text-align: center;
+
+}
+.game-box{
+  width: 90%;
+  max-width: 20rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255,255, 0.25);
+  /* height: 250px; */
+  padding: 2rem;
+  display: grid;
+  grid-template-columns:repeat(3,1fr) ;
+  aspect-ratio: 1/1;
+  
+}
+
+.box{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  font-size: 3rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-1,.box-2,.box-4,.box-5{
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+}
+.box-3,.box-6{
+  border-bottom: 2px solid white;
+}
+.box-7,.box-8{
+  border-right: 2px solid white;
+}
+
+.btn{
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255,255, 0.25);
+  padding: 0.rem 2rem ;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  bottom: 3rem;
+  left: 47%;
+  display: none;
+
+
+}
+
+.btn.active{
+  display: flex;
+}
+.win{
+  background-color: rgba(0,255,0,0.3);
+}
