@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="./quizapp.css">
+</head>
+<body>
+  <div class="app">
+    <h1>Simple Quiz</h1>
+    <div class="quiz">
+      <h2 id="question">Question Goes Here</h2>
+      <div id="answer-buttons">
+        <!-- Buttons will be dynamically added here -->
+      </div>
+      <button id="next-btn" style="display: none;">Next</button>
+    </div>
+  </div>
+  <script>
+    const questions = [
+      {
+        question: "Which is the largest animal in the world?",
+        answers: [
+          { text: "Shark", correct: false },
+          { text: "Blue Whale", correct: true },
+          { text: "Elephant", correct: false },
+          { text: "Giraffe", correct: false },
+        ],
+      },
+      {
+        question: "God of cricket?",
+        answers: [
+          { text: "Sachin Tendulkar", correct: true },
+          { text: "Virat Kohli", correct: false },
+          { text: "Thala", correct: false },
+          { text: "ABD", correct: false },
+        ],
+      },
+      {
+        question: "King of Cricket?",
+        answers: [
+          { text: "Viru", correct: false },
+          { text: "Thala", correct: false },
+          { text: "Pant", correct: false },
+          { text: "Virat Kohli", correct: true },
+        ],
+      },
+      {
+        question: "Who is Hitman?",
+        answers: [
+          { text: "Virat Kohli", correct: false },
+          { text: "Rohit Sharma", correct: true },
+          { text: "Thala-finish", correct: false },
+          { text: "Rituraj", correct: false },
+        ],
+      },
+      {
+        question: "Fastest 100 in ODI for India?",
+        answers: [
+          { text: "Raina", correct: false },
+          { text: "Hitman", correct: false },
+          { text: "Msd", correct: false },
+          { text: "Virat Kohli", correct: true },
+        ],
+      },
+    ];
+
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.getElementById("answer-buttons");
+    const nextButton = document.getElementById("next-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      nextButton.style.display = "none";
+      showQuestion();
+    }
+
+    function showQuestion() {
+      resetState();
+      const currentQuestion = questions[currentQuestionIndex];
+      questionElement.innerText = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+
+      currentQuestion.answers.forEach((answer) => {
+        const button = document.createElement("button");
+        button.innerText = answer.text;
+        button.classList.add("btn");
+        if (answer.correct) {
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+        answerButtons.appendChild(button);
+      });
+    }
+
+    function resetState() {
+      nextButton.style.display = "none";
+      while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+      }
+    }
+
+    function selectAnswer(e) {
+      const selectedButton = e.target;
+      const correct = selectedButton.dataset.correct === "true";
+      if (correct) {
+        score++;
+      }
+      Array.from(answerButtons.children).forEach((button) => {
+        setStatusClass(button, button.dataset.correct === "true");
+      });
+      nextButton.style.display = "block";
+    }
+
+    function setStatusClass(element, correct) {
+      element.classList.remove("correct");
+      element.classList.remove("wrong");
+      if (correct) {
+        element.classList.add("correct");
+      } else {
+        element.classList.add("wrong");
+      }
+    }
+
+    nextButton.addEventListener("click", () => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        showQuestion();
+      } else {
+        showScore();
+      }
+    });
+
+    function showScore() {
+      resetState();
+      questionElement.innerText = `You scored ${score} out of ${questions.length}!`;
+      nextButton.innerText = "Restart";
+      nextButton.style.display = "block";
+      nextButton.addEventListener("click", startQuiz);
+    }
+
+    startQuiz();
+  </script>
+</body>
+</html>
